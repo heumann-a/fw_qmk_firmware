@@ -6,8 +6,6 @@
 #include "os_detection.h"
 
 void keyboard_post_init_kb(void) {
-  keyboard_post_init_user();
-
   // Enable debug output
   debug_enable = true;
   debug_matrix = true;
