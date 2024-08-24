@@ -95,15 +95,12 @@ bool led_update_user(led_t led_state) {
     // Change layer if numlock state changes, either triggered by OS or
     // by numlock key on this keyboard
     static bool last_value = false;
-    if (led_state.num_lock) {
-        if(last_value != led_state.num_lock) {
+    if(last_value != led_state.num_lock) {
+        last_value = led_state.num_lock;
+        if (led_state.num_lock) {
             layer_off(_FN);
-            last_value = led_state.num_lock;
-        }
-    } else {
-        if(last_value != led_state.num_lock) {
+        } else {
             layer_on(_FN);
-            last_value = led_state.num_lock;
         }
     }
     return true;    
